@@ -11,7 +11,7 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        return auth()->user()->payments;
     }
 
     /**
@@ -19,7 +19,12 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'date' => 'required|date',
+            'amount' => 'required|numeric',
+        ]);
+        return auth()->user()->payments()->create($validated);
     }
 
     /**
