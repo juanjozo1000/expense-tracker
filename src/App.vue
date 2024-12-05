@@ -4,70 +4,104 @@ import ChartRenderer from "./components/ChartRenderer.vue";
 
 export default {
   components: {ChartRenderer},
-  data() { // WHAT ARE PROXYS
+  data() {
     return {
       currentBalances: {
-        bank: 123,
-        busking: 0,
-        cash: 15,
+        bank: 1225,
+        busking: 20,
+        cash: 5,
       },
       nextPayments: [
         // LAVORO
-        new Payment("GPT", "2023-03-17", 400), // END OF COLLABORAZIONE+
-        new Payment("Docenza mattina", "2023-04-17", 2080),
-        new Payment("Nello", "2023-03-27", 80),
-        new Payment("Nello", "2023-04-03", 100),
-        new Payment("Nello", "2023-04-10", 100),
+        new Payment("salary w extra", "2024-10-01", 2392),
+        new Payment("salary", "2024-11-10", 2080),
+        new Payment("salary", "2024-12-7", 2080),
+        new Payment("salary", "2025-01-7", 2080),
 
         //SPESE FORTI
-        new Payment("Debt", "2023-04-27", -1831),
+        new Payment("Taxes", "2024-10-21", -1339),
+        new Payment("Peluquero", "2024-10-10", -90),
+        new Payment("Taxes advance", "2024-12-10", -1152),
+        new Payment("Gaby", "2025-01-31", -1000),
+
+
+        // SPECIAL INCOMES
+        new Payment("Giacomo", "2024-10-01", 40),
 
         // SPESE MENSILI
+        new Payment("Rent", "2024-10-01", -810),
+        new Payment("Electricity", "2024-10-01", -91),
+        new Payment("Arturo", "2024-10-09", 450),
+        new Payment("ABO", "2024-10-01", -49),
+        new Payment("Gym", "2024-10-01", -24),
+        new Payment("Spotify", "2024-10-01", -11),
+        new Payment("Prime", "2024-10-01", -9),
+        new Payment("Cibo", "2024-10-15", -200),
+        new Payment("Ozio", "2024-10-15", -200),
 
-        new Payment("ABO", "2023-04-01", -29),
-        new Payment("Gym", "2023-04-01", -24),
-        new Payment("Cibo", "2023-04-15", -150),
-        new Payment("Ozio", "2023-04-15", -200),
+        new Payment("Rent", "2024-11-01", -810),
+        new Payment("Electricity", "2024-11-01", -91),
+        new Payment("Arturo", "2024-11-09", 450),
+        new Payment("ABO", "2024-11-01", -49),
+        new Payment("Gym", "2024-11-01", -24),
+        new Payment("Spotify", "2024-11-01", -11),
+        new Payment("Prime", "2024-11-01", -9),
+        new Payment("Cibo", "2024-11-15", -200),
+        new Payment("Ozio", "2024-11-15", -200),
 
+        new Payment("Rent", "2024-12-01", -810),
+        new Payment("Electricity", "2024-12-01", -91),
+        new Payment("Arturo", "2024-12-09", 450),
+        new Payment("ABO", "2024-12-01", -49),
+        new Payment("Gym", "2024-12-01", -24),
+        new Payment("Spotify", "2024-12-01", -11),
+        new Payment("Prime", "2024-12-01", -9),
+        new Payment("Cibo", "2024-12-15", -200),
+        new Payment("Ozio", "2024-12-15", -200),
 
-        new Payment("ABO", "2023-04-01", -29),
-        new Payment("ABO", "2023-04-01", -29),
-        new Payment("Gym", "2023-04-01", -24),
-        new Payment("Cibo", "2023-04-15", -150),
-        new Payment("Ozio", "2023-04-15", -200),
+        new Payment("Rent", "2025-01-01", -810),
+        new Payment("Electricity", "2025-01-01", -91),
+        new Payment("Arturo", "2025-01-09", 450),
+        new Payment("ABO", "2025-01-01", -49),
+        new Payment("Gym", "2025-01-01", -24),
+        new Payment("Spotify", "2025-01-01", -11),
+        new Payment("Prime", "2025-01-01", -9),
+        new Payment("Cibo", "2025-01-15", -200),
+        new Payment("Ozio", "2025-01-15", -200),
+
 
         // BUSKING 2 times A WEEK
-        // new Payment("Busking", "2023-02-13", 60 * 2),
-        // new Payment("Busking", "2023-02-20", 60 * 2),
-        // new Payment("Busking", "2023-02-27", 60 * 2),
-        // new Payment("Busking", "2023-03-06", 60 * 2),
+        // new Payment("Busking", "2024-02-13", 60 * 2),
+        // new Payment("Busking", "2024-02-20", 60 * 2),
+        // new Payment("Busking", "2024-02-27", 60 * 2),
+        // new Payment("Busking", "2024-03-06", 60 * 2),
 
         // BUSKING 1 TIME A WEEK
-        // new Payment("Busking", "2023-02-13", 60 * 1),
-        // new Payment("Busking", "2023-02-20", 60 * 1),
-        // new Payment("Busking", "2023-02-27", 60 * 1),
-        // new Payment("Busking", "2023-03-06", 60 * 1),
-        // new Payment("Busking", "2023-03-13", 60 * 1),
-        // new Payment("Busking", "2023-03-20", 60 * 1),
-        // new Payment("Busking", "2023-03-27", 60 * 1),
-        // new Payment("Busking", "2023-04-03", 60 * 1),
-        // new Payment("Busking", "2023-04-10", 60 * 1),
-        // new Payment("Busking", "2023-04-17", 60 * 1),
-        // new Payment("Busking", "2023-02-20", 60 * 1),
-        // new Payment("Busking", "2023-02-27", 60 * 1),
-        // new Payment("Busking", "2023-03-06", 60 * 1),
-        // new Payment("Busking", "2023-03-13", 60 * 1),
-        // new Payment("Busking", "2023-03-20", 60 * 1),
-        // new Payment("Busking", "2023-03-27", 60 * 1),
-        // new Payment("Busking", "2023-04-03", 60 * 1),
-        // new Payment("Busking", "2023-04-10", 60 * 1),
-        // new Payment("Busking", "2023-04-17", 60 * 1),
+        // new Payment("Busking", "2024-02-13", 60 * 1),
+        // new Payment("Busking", "2024-02-20", 60 * 1),
+        // new Payment("Busking", "2024-02-27", 60 * 1),
+        // new Payment("Busking", "2024-03-06", 60 * 1),
+        // new Payment("Busking", "2024-03-13", 60 * 1),
+        // new Payment("Busking", "2024-03-20", 60 * 1),
+        // new Payment("Busking", "2024-03-27", 60 * 1),
+        // new Payment("Busking", "2024-04-03", 60 * 1),
+        // new Payment("Busking", "2024-04-10", 60 * 1),
+        // new Payment("Busking", "2024-04-17", 60 * 1),
+        // new Payment("Busking", "2024-02-20", 60 * 1),
+        // new Payment("Busking", "2024-02-27", 60 * 1),
+        // new Payment("Busking", "2024-03-06", 60 * 1),
+        // new Payment("Busking", "2024-03-13", 60 * 1),
+        // new Payment("Busking", "2024-03-20", 60 * 1),
+        // new Payment("Busking", "2024-03-27", 60 * 1),
+        // new Payment("Busking", "2024-04-03", 60 * 1),
+        // new Payment("Busking", "2024-04-10", 60 * 1),
+        // new Payment("Busking", "2024-04-17", 60 * 1),
 
         // LONG TERM
 
-        // new Payment('Debt', "2023-07-04",1831, false),
-        // new Payment('Debt', "2023-07-04",1831, false),
-        // new Payment('Debt', "2023-07-04",1831, false),
+        // new Payment('Debt', "2024-07-04",1831, false),
+        // new Payment('Debt', "2024-07-04",1831, false),
+        // new Payment('Debt', "2024-07-04",1831, false),
       ],
       // nextExpenses: [
       //
